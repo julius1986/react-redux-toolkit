@@ -3,14 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchUsers = createAsyncThunk(
   "usersSlice/fetchUsers",
   async () => {
-    return new Promise((res, rej) => {
-      setTimeout(async () => {
         const users = await (
           await fetch("https://jsonplaceholder.typicode.com/users")
         ).json();
-        res(users);
-      }, 3000);
-    });
+        return users;
   }
 );
 
